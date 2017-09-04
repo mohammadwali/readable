@@ -49,6 +49,7 @@ header * {
     background-color: #fff;
     border: 1px solid #e4e4e4;
     border-radius: 6px;
+    margin-bottom: 30px;
 }
 
 .bg-container + .bg-container {

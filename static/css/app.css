@@ -45,10 +45,13 @@ header * {
     padding-top: 5px;
 }
 
-.post {
+.bg-container, .post {
     background-color: #fff;
     border: 1px solid #e4e4e4;
     border-radius: 6px;
+}
+
+.post {
     margin-bottom: 45px;
     padding: 0 15px;
 }
@@ -82,3 +85,57 @@ header * {
     border-top: 1px solid #e4e4e4;
 }
 
+aside {
+    padding: 30px 0 30px;
+}
+
+.aside-heading {
+    font-size: 12px;
+    font-family: Lato, sans-serif;
+    text-transform: uppercase;
+    color: #9a9a90;
+    margin: 0 0 12px 0;
+}
+
+#categories ul {
+    list-style: none;
+    padding: 0;
+    background-color: #f3f4f4;
+    border: 1px solid #dfe2e4;
+    border-radius: 3px;
+}
+
+#categories ul li a {
+    padding: 15px 20px;
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid #dfe2e4;
+}
+
+
+#categories ul li a:after {
+    position: absolute;
+    content: "\e080";
+    font-weight: 400;
+    color: #c6c7c2;
+    right: 20px;
+    font-family: "Glyphicons Halflings";
+}
+
+
+.post-reaction {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.post-reaction .glyphicon {
+    margin-right: 5px;
+}
+
+.post-reaction .glyphicon-thumbs-up {
+    color: #49b749;
+}
+
+.post-reaction .glyphicon-thumbs-down {
+    color: #e27272;
+}

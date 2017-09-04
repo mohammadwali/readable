@@ -60,7 +60,7 @@ header * {
     padding: 0 15px;
 }
 
-.post-title {
+.post-title, #comment-form h2 {
     line-height: 1.5;
     margin: 15px 0;
     color: #2f343b;
@@ -200,3 +200,6 @@ span.aside-heading {
     margin-bottom: 15px;
 }
 
+#comment-form h2{
+    font-size: 20px;
+}

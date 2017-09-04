@@ -177,3 +177,26 @@ span.aside-heading {
 .post-page-container .post-info {
     margin-bottom: 10px;
 }
+
+
+.comment-form{
+    margin-bottom: 30px;
+}
+.comment-form input {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #f8f9fa;
+    margin-bottom: 30px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #f8f9fa;
+    margin-bottom: 15px;
+}
+

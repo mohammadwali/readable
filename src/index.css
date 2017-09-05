@@ -1,5 +1,20 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #40454a;
+  background-color: #f3f4f4;
+}
+
+a {
+  color: #4268a0;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+a:hover {
+  color: #457aa0;
+  text-decoration: none;
 }

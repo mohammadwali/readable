@@ -1,25 +1,37 @@
 {
-  "name": "reddit-clone-server",
+  "name": "readable",
   "version": "0.0.1",
-  "description": "A server for the Udacity Reddit Clone project for ReactND",
-  "main": "index.js",
+  "description": "A content and comment web app for React ND",
+  "main": "api/server.js",
   "keywords": [
-    "udacity",
     "redux",
     "readable",
     "react"
   ],
-  "author": "David Harris",
   "license": "ISC",
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run start:rs\" \"npm run start:api\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "start:api": "node api/server.js",
+    "start:rs": "react-scripts start"
+  },
   "dependencies": {
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "clone": "^2.1.1",
-    "redux":"^3.7.2",
-    "react-redux":"^5.0.5",
-    "react-router":"^4.1.1",
-    "react-router-dom":"4.1.1"
+    "redux": "^3.7.2",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-dom": "4.1.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "react-scripts": "1.0.13"
   }
- }
+}

@@ -1,12 +1,7 @@
 import {combineReducers} from 'redux'
+import postReducer from './post';
 
 
-function indexReducer(state = {}, action) {
-    switch (action) {
-        default:
-            return state;
-    }
-}
-
-
-export default combineReducers({indexReducer})
+export default combineReducers({
+    posts: postReducer
+})

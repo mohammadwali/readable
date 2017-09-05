@@ -1,41 +1,23 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-
-import Header from './Header';
-import PostsList from './PostsList';
+import React from 'react'
+import {Route, Redirect, Switch, Link} from 'react-router-dom';
 
 
-class App extends Component {
-    render() {
-
-        return (
-            <div>
-                <Header/>
-
-                <div className="container">
-                    <div className="row">
-
-                        <div className="col-md-8">
-                            <PostsList/>
-                        </div>
+import HomePage from './pages/Home';
 
 
-                    </div>
-                </div>
-            </div>
-        )
-    }
-}
+const App = () => (
+    <Switch>
+        <Route exact path="/home" component={HomePage}/>
 
-function mapStateToProps() {
-    return {}
-}
+        <Route exact path="/hello" render={() => {
+            return ( <div>
+                hello
+                <Link to="/home">Home</Link>
+            </div>)
+        }}/>
 
-function mapDispatchToProps(dispatch) {
-    return {}
-}
+        <Redirect to="/home"/>
+    </Switch>
+);
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(App)
+export default App;

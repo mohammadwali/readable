@@ -18,3 +18,195 @@ a:hover {
   color: #457aa0;
   text-decoration: none;
 }
+
+header {
+  background: #4268a0;
+  padding: 15px 15px;
+  margin-bottom: 45px;
+  height: 70px;
+}
+
+header * {
+  vertical-align: -webkit-baseline-middle;
+}
+
+.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.logo img {
+  border-radius: 7px;
+  height: 25px;
+}
+
+.header-new-button {
+  padding-top: 5px;
+}
+
+.bg-container, .post {
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+.bg-container + .bg-container {
+  margin-top: 30px;
+}
+
+.post {
+  margin-bottom: 45px;
+  padding: 0 15px;
+}
+
+.post-title, #comment-form h2 {
+  line-height: 1.5;
+  margin: 15px 0;
+  color: #2f343b;
+  font-weight: 700;
+}
+
+.post-description {
+  font-size: 20px;
+  font-weight: 300;
+  color: #999;
+  letter-spacing: -0.75px;
+  line-height: 30px;
+  margin: -8px 0 30px 0;
+}
+
+.post-description:hover {
+  color: #9a9a90;
+}
+
+h1.post-description {
+  margin-top: 20px;
+  font-size: 50px;
+}
+
+.post-info {
+  position: relative;
+  height: auto;
+  color: #9a9a90;
+  padding: 10px 0;
+  line-height: 30px;
+  border-top: 1px solid #e4e4e4;
+}
+
+aside .bg-container {
+  padding: 30px 0 30px;
+}
+
+.aside-heading {
+  font-size: 12px;
+  font-family: Lato, sans-serif;
+  text-transform: uppercase;
+  color: #9a9a90;
+  margin: 0 0 12px 0;
+}
+
+span.aside-heading {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.aside-dropdown {
+  border-color: #dfe2e4;
+  background: #f3f4f4;
+  height: 40px;
+  width: 100%;
+}
+
+.aside-sortby {
+  margin-bottom: 30px;
+}
+
+#categories ul {
+  list-style: none;
+  padding: 0;
+  background-color: #f3f4f4;
+  border: 1px solid #dfe2e4;
+  border-radius: 3px;
+}
+
+#categories ul li a {
+  padding: 15px 20px;
+  width: 100%;
+  display: inline-block;
+  border-bottom: 1px solid #dfe2e4;
+}
+
+#categories ul li a:after {
+  position: absolute;
+  content: "\e080";
+  font-weight: 400;
+  color: #c6c7c2;
+  right: 20px;
+  font-family: "Glyphicons Halflings";
+}
+
+.post-reaction {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.post-reaction .glyphicon {
+  margin-right: 0;
+}
+
+.post-reaction .glyphicon-thumbs-up {
+  color: #49b749;
+}
+
+.post-reaction .glyphicon-thumbs-down {
+  color: #e27272;
+}
+
+.post-reaction .glyphicon-star {
+  color: #e4e446;
+}
+
+.post-content {
+  margin-bottom: 30px;
+  font-size: 20px;
+  line-height: 1.65;
+  color: #40454a;
+}
+
+.post-page-container .post-info {
+  margin-bottom: 10px;
+}
+
+
+.comment-form{
+  margin-bottom: 30px;
+}
+.comment-form input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #f8f9fa;
+  margin-bottom: 30px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #f8f9fa;
+  margin-bottom: 15px;
+}
+
+#comment-form h2{
+  font-size: 20px;
+}
+
+#comments h3 {
+  text-align: center;
+  padding: 40px 0;
+  color: #bbb7b7;
+}

@@ -1,22 +1,43 @@
 import React from 'react';
+import thunk from 'redux-thunk'
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux'
 import {Provider} from 'react-redux'
-import {BrowserRouter} from 'react-router-dom'
-import reducer from './reducers'
-import App from './components/App'
-import registerServiceWorker from './registerServiceWorker';
+import {createStore, applyMiddleware, compose} from 'redux'
+import {BrowserRouter, Route, Redirect, Switch, Link} from 'react-router-dom'
+
 
 import './index.css';
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+import reducer from './reducers'
+import HomePage from './components/pages/Home';
+
+import registerServiceWorker from './registerServiceWorker';
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
+const store = createStore(
+    reducer,
+
+    applyMiddleware(thunk)
+);
+
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <Switch>
+                <Route exact path="/home" component={HomePage}/>
+                <Route exact path="/post/:id" render={() => {
+                   return ( <Link to="/home">Home</Link>)
+                }}/>
+
+                <Redirect to="/home"/>
+            </Switch>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );
+
 registerServiceWorker();

@@ -2,7 +2,16 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Truncate from 'react-truncate'
 
+import {Link} from 'react-router-dom'
+
+import * as actions from '../actions/postActions';
+
 class PostsList extends Component {
+
+    componentWillMount() {
+        this.props.loadPosts();
+    }
+
     render() {
 
 
@@ -20,7 +29,8 @@ class PostsList extends Component {
                                 <div className="row">
 
                                     <div className="col-md-10  col-md-offset-1">
-                                        <h2 className="post-title"><a href={ "/post/" + post.id }>{ post.title } </a>
+                                        <h2 className="post-title">
+                                            <Link to={ "/post/" + post.id }>{ post.title } </Link>
                                         </h2>
                                         <p className="post-description">
 
@@ -101,12 +111,16 @@ class PostsList extends Component {
     }
 }
 
-function mapStateToProps() {
-    return {}
+function mapStateToProps(state, ownProps) {
+    return {
+        posts: state.posts
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-    return {}
+    return {
+        loadPosts: () => dispatch(actions.loadPosts())
+    }
 }
 
 export default connect(

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Truncate from 'react-truncate'
-
+import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 import * as actions from '../actions/postActions';
@@ -21,6 +21,8 @@ class PostsList extends Component {
 
                 {
                     this.props.posts.map(post => {
+
+                        const formattedDate = moment(post.timestamp).format("MM-DD-YYYY");
 
 
                         return (
@@ -50,36 +52,31 @@ class PostsList extends Component {
                                         <div className="row">
                                             <div className="post-info row text-center">
 
+                                                <div className="col-md-3">
 
+                                                    <span className="glyphicon glyphicon-user"/>
+                                                    &nbsp;
+                                                    { post.author }
+
+                                                </div>
                                                 <div className="col-md-3">
                                                     <span className="glyphicon glyphicon-calendar"/>
-                                                    &nbsp; 6. May, 2014
+                                                    &nbsp; {formattedDate}
                                                 </div>
+
+
                                                 <div className="col-md-3">
 
                                                     <span className="glyphicon glyphicon-comment"/>
                                                     &nbsp;
-                                                    <a >0 Comments</a>
-
-                                                </div>
-
-                                                <div className="col-md-3">
-
-                                                    <span className="glyphicon glyphicon-tag"/>
-                                                    &nbsp;
-                                                    <a >Technology</a>
+                                                    <a >{post.comments || '0'} Comments</a>
 
                                                 </div>
                                                 <div className="col-md-3 text-right">
 
                                                     <div className="post-reaction">
-                                                        <span className="glyphicon glyphicon-star"/>
-                                                        <a >0 </a>
-                                                    </div>
-
-                                                    <div className="post-reaction">
                                                         <span className="glyphicon glyphicon-thumbs-up"/>
-                                                        <a >0 </a>
+                                                        <a > 0 </a>
                                                     </div>
 
                                                     <div className="post-reaction">

@@ -30,7 +30,7 @@ export function updatePostVote(type, postId) {
         dispatch(updateVote(type, postId));
 
         //updating the server
-        return fetch("http://localhost:5001/posts/" + postId,
+        return fetch(`http://localhost:5001/posts/${postId}`,
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -40,6 +40,22 @@ export function updatePostVote(type, postId) {
                     'Content-Type': 'application/json'
                 }
             })
+            .catch(error => {
+                throw(error)
+            })
+    }
+}
+
+export function updatePostComments(postId, comments) {
+    return {type: types.UPDATE_POST_COMMENTS, postId, comments}
+}
+
+export function loadPostComments(postId) {
+    return dispatch => {
+
+        //updating the server
+        return fetch(`http://localhost:5001/posts/${postId}/comments`)
+            .then(response => dispatch(updatePostComments(postId, response)))
             .catch(error => {
                 throw(error)
             })

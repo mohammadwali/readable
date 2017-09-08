@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 
 import * as actions from '../actions/postActions';
 
+import PostScore from './postScore';
+
 class PostsList extends Component {
 
     componentWillMount() {
@@ -72,17 +74,10 @@ class PostsList extends Component {
                                                     <a >{post.comments || '0'} Comments</a>
 
                                                 </div>
-                                                <div className="col-md-3 text-right">
+                                                <div className="col-md-3">
 
-                                                    <div className="post-reaction">
-                                                        <span className="glyphicon glyphicon-thumbs-up"/>
-                                                        <a > 0 </a>
-                                                    </div>
+                                                    <PostScore post={post} onScore={this.props.doScore}/>
 
-                                                    <div className="post-reaction">
-                                                        <span className="glyphicon glyphicon-thumbs-down"/>
-                                                        <a >10 </a>
-                                                    </div>
 
                                                 </div>
 
@@ -116,7 +111,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        loadPosts: () => dispatch(actions.loadPosts())
+        loadPosts: () => dispatch(actions.loadPosts()),
+        doScore: (type, postId) => dispatch(actions.updatePostVote(type, postId))
     }
 }
 

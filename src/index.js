@@ -19,8 +19,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
     reducer,
-
-    applyMiddleware(thunk)
+    composeEnhancers(applyMiddleware(thunk))
 );
 
 
@@ -30,7 +29,7 @@ ReactDOM.render(
             <Switch>
                 <Route exact path="/home" component={HomePage}/>
                 <Route exact path="/post/:id" render={() => {
-                   return ( <Link to="/home">Home</Link>)
+                    return ( <Link to="/home">Home</Link>)
                 }}/>
 
                 <Redirect to="/home"/>

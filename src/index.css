@@ -147,25 +147,21 @@ span.aside-heading {
   font-family: "Glyphicons Halflings";
 }
 
-.post-reaction {
-  display: inline-block;
-  margin-right: 10px;
+.post-score > [class*=glyphicon-arrow] {
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.post-reaction .glyphicon {
-  margin-right: 0;
+.post-score > .glyphicon-arrow-up {
+  background: green;
+  margin-right: 5px;
 }
 
-.post-reaction .glyphicon-thumbs-up {
-  color: #49b749;
-}
-
-.post-reaction .glyphicon-thumbs-down {
-  color: #e27272;
-}
-
-.post-reaction .glyphicon-star {
-  color: #e4e446;
+.post-score > .glyphicon-arrow-down {
+  background: red;
+  margin-left: 5px;
 }
 
 .post-content {

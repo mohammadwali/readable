@@ -10,6 +10,7 @@ import './index.css';
 
 import reducer from './reducers'
 import HomePage from './components/pages/Home';
+import PostPage from './components/pages/Post';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -28,10 +29,7 @@ ReactDOM.render(
         <BrowserRouter>
             <Switch>
                 <Route exact path="/home" component={HomePage}/>
-                <Route exact path="/post/:id" render={() => {
-                    return ( <Link to="/home">Home</Link>)
-                }}/>
-
+                <Route exact path="/post/:id" component={PostPage}/>
                 <Redirect to="/home"/>
             </Switch>
         </BrowserRouter>

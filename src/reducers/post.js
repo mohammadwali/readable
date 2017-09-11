@@ -1,7 +1,7 @@
 import * as types from '../actions/actionTypes';
 
 
-function postReducer(state = [], action) {
+function postsReducer(state = [], action) {
     switch (action.type) {
 
         case types.LOAD_POSTS_SUCCESS:
@@ -47,4 +47,4 @@ function postReducer(state = [], action) {
 }
 
 
-export default postReducer;
+export default postsReducer;

@@ -61,3 +61,23 @@ export function loadPostComments(postId) {
             })
     }
 }
+
+export function postDetailsLoaded(post) {
+    return {type: types.POST_DETAILS_LOADED, post}
+}
+
+
+export function loadPostById(postId) {
+    return dispatch => {
+        return fetch(`http://localhost:5001/posts/${postId}`)
+            .then(response => {
+
+                dispatch(postDetailsLoaded(response));
+
+                loadPostComments(postId)(dispatch);
+            })
+            .catch(error => {
+                throw(error)
+            })
+    }
+}

@@ -110,3 +110,18 @@ export function addNewComment({comment, name, email}, postId) {
             })
     }
 }
+
+
+export function deleteComment(commentId, postId) {
+    return dispatch => {
+        return fetch(`http://localhost:5001/comments/${commentId}`, {
+            method: "DELETE"
+        })
+            .then(response => {
+                dispatch(loadPostComments(postId));
+            })
+            .catch(error => {
+                throw(error)
+            })
+    }
+}

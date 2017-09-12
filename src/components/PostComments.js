@@ -44,7 +44,6 @@ class PostPage extends Component {
 
     }
 
-
     render() {
 
         const {post} = this.props;
@@ -67,8 +66,9 @@ class PostPage extends Component {
 
 
                                     <div className="col-md-12">
-                                        { post.comments.map(comment => <CommentItem key={comment.id}
-                                                                                    comment={comment}/>) }
+                                        { post.comments.map(comment => <CommentItem
+                                            deleteComment={this.props.deleteComment} key={comment.id}
+                                            comment={comment}/>) }
                                     </div>
                                 </div>
                             )
@@ -87,7 +87,7 @@ class PostPage extends Component {
     }
 }
 
-const CommentItem = ({comment}) => {
+const CommentItem = ({comment, deleteComment}) => {
 
     const formattedDate = moment(comment.timestamp).format("YYYY-MM-DD hh:mm:ss");
 
@@ -112,7 +112,10 @@ const CommentItem = ({comment}) => {
             <div className="col-md-1 text-right pull-right inline-icons-wrap">
 
                 <a className="edit-icon inline-icons"><i className="fa fa-pencil"/></a>
-                <a className="delete-icon inline-icons"><i className="fa fa-trash"/></a>
+                <a className="delete-icon inline-icons"
+                   onClick={() => deleteComment(comment.id, comment.parentId)}>
+                    <i className="fa fa-trash"/>
+                </a>
 
 
             </div>
@@ -136,7 +139,8 @@ function mapStateToProps(store, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addComment: (data, postId) => dispatch(actions.addNewComment(data, postId))
+        addComment: (data, postId) => dispatch(actions.addNewComment(data, postId)),
+        deleteComment: (commentId, postId) => dispatch(actions.deleteComment(commentId, postId))
     }
 }
 

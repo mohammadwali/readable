@@ -66,19 +66,19 @@ class PostPage extends Component {
 
                         {
                             !post.comments || !post.comments.length ? (
-                                <div className="col-md-12">
-                                    <h3> There are no comments yet.</h3>
-                                </div>
-                            ) : (
+                                <h3> There are no comments yet.</h3>
+                            ) : ([
+
+                                <h2 id="comments-head">
+                                    <i className="fa fa-comments-o"/>
+                                    {post.comments.length} comments on this post.
+                                </h2>
+                                ,
 
                                 <div className="col-md-12">
-                                    <h2 id="comments-head">
-                                        <i className="fa fa-comments-o"/>
-                                        {post.comments.length} comments on this post.
-                                    </h2>
                                     { post.comments.map(comment => <CommentItem comment={comment} key={comment.id}/>) }
                                 </div>
-                            )
+                            ])
                         }
 
 

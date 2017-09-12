@@ -62,7 +62,7 @@ header * {
     padding: 0 15px;
 }
 
-.post-title, #comment-form h2, #comments-head {
+.post-title, #comment-form h2, .comments-head {
     line-height: 1.5;
     margin: 15px 0;
     color: #2f343b;
@@ -199,7 +199,7 @@ span.aside-heading {
     margin-bottom: 15px;
 }
 
-#comment-form h2, #comments-head {
+.comments-head {
     font-size: 20px;
 }
 
@@ -248,11 +248,20 @@ div#comments {
     margin: 0;
 }
 
-#comments-head .fa {
+.comments-head .fa {
     margin-right: 10px;
     display: inline-block;
 }
 
 .comment-item + .comment-item {
     margin-top: 20px;
+}
+
+div#comment-form-error {
+    padding: 10px;
+    background: #d85050;
+    margin:  0 0 10px;
+    color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 1px red;
 }

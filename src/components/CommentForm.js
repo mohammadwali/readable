@@ -7,7 +7,9 @@ class CommentForm extends Component {
         const {error, handleSubmit, submitting} = this.props;
         return (
             <div id="comment-form">
-                <h2>Add a comment</h2>
+                <h2 className="comments-head">
+                    <i className="fa fa-comment-o"/>
+                    Add a comment</h2>
                 <form className="comment-form clearfix" onSubmit={handleSubmit}>
                     <div className="col-md-6">
                         <Field name="name" className="form-control" placeholder="Name" component="input" type="text"/>
@@ -23,9 +25,10 @@ class CommentForm extends Component {
 
                         {
                             error &&
-                            <strong>
+
+                            <div id="comment-form-error">
                                 {error}
-                            </strong>
+                            </div>
                         }
 
                         <button type="submit" disabled={submitting} className="btn btn-primary">Add comment</button>

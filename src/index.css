@@ -244,6 +244,10 @@ div#comments {
     padding-right: 0;
 }
 
+.inline-icons:last-child {
+    margin: 0;
+}
+
 #comments-head .fa {
     margin-right: 10px;
     display: inline-block;

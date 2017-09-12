@@ -6,6 +6,7 @@ import * as actions from '../../actions/postActions';
 
 import Header from '../Header';
 import PostScore from '../postScore'
+import CommentForm from '../CommentForm'
 
 
 class PostPage extends Component {
@@ -14,6 +15,9 @@ class PostPage extends Component {
         this.props.getPost(this.props.match.params.id);
     }
 
+    onCommentAdd(values) {
+        console.log(values)
+    }
 
     render() {
         const {post, doScore} = this.props;
@@ -70,22 +74,7 @@ class PostPage extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div id="comment-form">
-                                    <h2>Add a comment</h2>
-                                    <form className="comment-form clearfix">
-                                        <div className="col-md-6">
-                                            <input type="text" className="form-control" placeholder="Name"/>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <input type="text" className="form-control" placeholder="E-mail"/>
-                                        </div>
-                                        <div className="col-md-12">
-                                            <textarea className="form-control" rows={6} placeholder="Your Comment..."
-                                                      defaultValue={""}/>
-                                            <a className="btn btn-primary">Add comment</a>
-                                        </div>
-                                    </form>
-                                </div>
+                                <CommentForm onSubmit={this.onCommentAdd}/>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import  {Link} from 'react-router-dom';
 import logo from '../images/logo.png';
 
 
@@ -12,10 +12,10 @@ class Header extends Component {
                     <div className="row">
 
                         <div className="col-md-2">
-                            <div className="logo">
+                            <Link className="logo" to="/home">
                                 <img src={logo}/>
                                 <span>Readable</span>
-                            </div>
+                            </Link>
                         </div>
 
                         <div className="col-md-1 pull-right text-right header-new-button">

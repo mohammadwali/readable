@@ -8,16 +8,19 @@ function postDetailsReducer(state = {}, action) {
             return Object.assign({}, state, action.post);
 
         case types.UPDATE_POST_COMMENTS:
+            const filterPostComments = comment => !comment.deleted;
 
             //only updating the post which is changed!
             if (state.id === action.postId) {
 
                 const newPost = Object.assign({}, state);
 
-                newPost.comments = [...action.comments];
+                newPost.comments = [...action.comments].filter(filterPostComments);
 
                 return newPost;
             }
+
+            state.comments = state.comments.filter(filterPostComments);
 
             return state;
 

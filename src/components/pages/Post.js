@@ -6,7 +6,7 @@ import * as actions from '../../actions/postActions';
 
 import Header from '../Header';
 import PostScore from '../postScore'
-import CommentForm from '../CommentForm'
+import PostComments from '../PostComments'
 
 
 class PostPage extends Component {
@@ -68,14 +68,7 @@ class PostPage extends Component {
 
                                 </div>
                             </div>
-                            <div className="row">
-                                <div id="comments">
-                                    <h3> There are no comments yet.</h3>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <CommentForm onSubmit={this.onCommentAdd}/>
-                            </div>
+                            <PostComments/>
                         </div>
                     </div>
                 </div>

@@ -13,8 +13,7 @@ class CommentItem extends Component {
                 <div className="col-md-8">
                     <span className="glyphicon glyphicon-user"/>
                     &nbsp;
-                    <strong>{comment.author}</strong> commented <TimeAgo date={comment.timestamp}/> ( { formattedDate }
-                    )
+                    <strong>{comment.author}</strong> commented <TimeAgo date={comment.timestamp}/> ( { formattedDate } )
                 </div>
 
                 <div className="col-md-2 pull-right">

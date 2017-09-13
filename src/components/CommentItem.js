@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import TimeAgo from 'react-timeago';
 import moment from 'moment';
 
+import VoteWidget from './VoteWidget'
 
 class CommentItem extends Component {
     render() {
-        const {comment, deleteComment} = this.props;
+        const {comment, deleteComment, onScoreChange} = this.props;
         const formattedDate = moment(comment.timestamp).format("YYYY-MM-DD hh:mm:ss");
 
         return ( <div className="comment-item">
@@ -18,11 +19,7 @@ class CommentItem extends Component {
 
                 <div className="col-md-2 pull-right">
 
-                    <div className="post-score">
-                        <span className="glyphicon glyphicon-arrow-up"/>
-                        <span> {comment.voteScore}</span>
-                        <span className="glyphicon glyphicon-arrow-down"/>
-                    </div>
+                    <VoteWidget score={comment.voteScore} onChange={type => onScoreChange(type, comment.id)}/>
 
                 </div>
 

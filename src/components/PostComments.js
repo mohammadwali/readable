@@ -67,8 +67,10 @@ class PostPage extends Component {
 
                                     <div className="col-md-12">
                                         { post.comments.map(comment => <CommentItem
-                                            deleteComment={this.props.deleteComment} key={comment.id}
-                                            comment={comment}/>) }
+                                            comment={comment}
+                                            key={comment.id}
+                                            onScoreChange={(type, commentId) => this.props.onScoreChange(type, commentId, comment.parentId)}
+                                            deleteComment={this.props.deleteComment}/>) }
                                     </div>
                                 </div>
                             )
@@ -88,7 +90,6 @@ class PostPage extends Component {
 }
 
 
-
 function mapStateToProps(store, ownProps) {
     return {
         post: store.postDetails
@@ -98,7 +99,8 @@ function mapStateToProps(store, ownProps) {
 function mapDispatchToProps(dispatch) {
     return {
         addComment: (data, postId) => dispatch(actions.addNewComment(data, postId)),
-        deleteComment: (commentId, postId) => dispatch(actions.deleteComment(commentId, postId))
+        deleteComment: (commentId, postId) => dispatch(actions.deleteComment(commentId, postId)),
+        onScoreChange: (type, commentId, postId) => dispatch(actions.updateCommentVote(type, commentId, postId))
     }
 }
 

@@ -125,3 +125,31 @@ export function deleteComment(commentId, postId) {
             })
     }
 }
+
+
+export function updateCommentVoteScore(voteType, commentId, parentId) {
+    return {type: types.UPDATE_COMMENT_SCORE, voteType, commentId, postId: parentId}
+}
+
+
+export function updateCommentVote(type, commentId, parentId) {
+    return dispatch => {
+        //updating the app
+        dispatch(updateCommentVoteScore(type, commentId, parentId));
+
+        //updating the server
+        return fetch(`http://localhost:5001/comments/${commentId}`,
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    option: type
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .catch(error => {
+                throw(error)
+            })
+    }
+}

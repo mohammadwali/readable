@@ -148,19 +148,20 @@ span.aside-heading {
     font-family: "Glyphicons Halflings";
 }
 
-.post-score > [class*=glyphicon-arrow] {
-    padding: 5px 10px;
+.vote-widget > [class*=glyphicon-arrow] {
+    padding: 5px 8px;
     color: #fff;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 11px;
 }
 
-.post-score > .glyphicon-arrow-up {
+.vote-widget > .glyphicon-arrow-up {
     background: green;
     margin-right: 5px;
 }
 
-.post-score > .glyphicon-arrow-down {
+.vote-widget > .glyphicon-arrow-down {
     background: red;
     margin-left: 5px;
 }

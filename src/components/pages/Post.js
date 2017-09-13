@@ -5,7 +5,7 @@ import moment from 'moment';
 import * as actions from '../../actions/postActions';
 
 import Header from '../Header';
-import PostScore from '../postScore'
+import VoteWidget from '../VoteWidget'
 import PostComments from '../PostComments'
 
 
@@ -61,7 +61,7 @@ class PostPage extends Component {
                                     </div>
                                     <div className="col-md-3">
 
-                                        <PostScore post={post} onScore={doScore}/>
+                                        <VoteWidget score={post.voteScore} onChange={type => doScore(type, post.id)}/>
 
 
                                     </div>

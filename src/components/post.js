@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 
 import * as actions from '../actions/postActions';
 
-import PostScore from './postScore';
+import VoteWidget from './VoteWidget';
 
 
 class Post extends Component {
@@ -72,8 +72,7 @@ class Post extends Component {
                                 </div>
                                 <div className="col-md-3">
 
-                                    <PostScore post={post} onScore={this.props.doScore}/>
-
+                                    <VoteWidget score={post.voteScore} onChange={type => this.props.doScore(type, post.id)}/>
 
                                 </div>
 

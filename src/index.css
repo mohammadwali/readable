@@ -261,8 +261,31 @@ div#comments {
 div#comment-form-error {
     padding: 10px;
     background: #d85050;
-    margin:  0 0 10px;
+    margin: 0 0 10px;
     color: #fff;
     border-radius: 3px;
     box-shadow: 0 0 1px red;
+}
+
+.comment-body form > div + div {
+    margin-top: 15px;
+}
+
+.comment-body form .btn.btn-default {
+    margin-left: 10px;
+}
+
+textarea.form-control {
+    resize: vertical;
+    border-color: #e0e0e0;
+    background: #f8f9fa;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    user-select: none;
+}
+.comment-item-edit-error {
+    color: red;
 }

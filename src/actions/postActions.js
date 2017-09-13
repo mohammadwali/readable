@@ -153,3 +153,30 @@ export function updateCommentVote(type, commentId, parentId) {
             })
     }
 }
+
+export function toggleCommentEdit(commentId, editState) {
+    return {type: types.TOGGLE_COMMENT_EDIT, commentId, editState}
+}
+
+
+export function updateComment({comment, commentId}, postId) {
+    return dispatch => {
+
+        //updating the server
+        return fetch(`http://localhost:5001/comments/${commentId}`,
+            {
+                method: "PUT",
+                body: JSON.stringify({
+                    body: comment,
+                    timestamp: Date.now()
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => dispatch(loadPostComments(postId)))
+            .catch(error => {
+                throw(error)
+            })
+    }
+}

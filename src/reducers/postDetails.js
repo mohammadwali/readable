@@ -63,6 +63,29 @@ function postDetailsReducer(state = {}, action) {
 
             return state;
 
+        case types.TOGGLE_COMMENT_EDIT:
+
+
+            //only updating the post which is changed!
+
+            return Object.assign({}, state, {
+                comments: [
+                    ...state.comments.map(comment => {
+
+                        if (comment.id === action.commentId) {
+
+                            return Object.assign({}, comment, {
+                                isEditing: action.editState
+                            });
+
+                        }
+
+                        return comment;
+                    })
+                ]
+            });
+
+
         default:
             return state;
     }

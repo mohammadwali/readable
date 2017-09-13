@@ -35,7 +35,7 @@ class PostPage extends Component {
 
         if (!values.comment || values.comment.trim() === "") {
             throw new SubmissionError({
-                _error: "Comment message cannot be emptyacga"
+                _error: "Comment message cannot be empty"
             })
         }
 

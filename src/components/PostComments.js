@@ -13,8 +13,6 @@ class PostPage extends Component {
 
 
     onCommentAdd(values) {
-        //todo validate here
-
         if (!values.name || values.name.trim() === "") {
             throw new SubmissionError({
                 _error: "Name is required"

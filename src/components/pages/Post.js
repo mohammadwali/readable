@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import  {Link} from 'react-router-dom';
 import moment from 'moment';
 import * as actions from '../../actions/postActions';
 
@@ -13,10 +12,6 @@ class PostPage extends Component {
 
     componentWillMount() {
         this.props.getPost(this.props.match.params.id);
-    }
-
-    onCommentAdd(values) {
-        console.log(values)
     }
 
     render() {
@@ -59,9 +54,17 @@ class PostPage extends Component {
                                         <a >{ post.comments && post.comments.length || '0'} Comments</a>
 
                                     </div>
+
+                                    <div className="col-md-3 post-action-buttons">
+                                        <a className="btn btn-xs btn-default">Edit</a>
+
+                                        <a className="btn btn-xs btn-danger">Delete</a>
+                                    </div>
+
                                     <div className="col-md-3">
 
-                                        <VoteWidget score={post.voteScore} onChange={type => doScore(type, post.id)}/>
+                                        <VoteWidget score={post.voteScore}
+                                                    onChange={type => doScore(type, post.id)}/>
 
 
                                     </div>

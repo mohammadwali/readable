@@ -70,12 +70,19 @@ class Post extends Component {
                                     <a >{ post.comments && post.comments.length || '0'} Comments</a>
 
                                 </div>
-                                <div className="col-md-3">
+                                <div className="col-md-3 post-action-buttons">
+                                    <a className="btn btn-xs btn-default">Edit</a>
 
-                                    <VoteWidget score={post.voteScore} onChange={type => this.props.doScore(type, post.id)}/>
-
+                                    <a className="btn btn-xs btn-danger">Delete</a>
                                 </div>
 
+                                <div className="col-md-3">
+
+                                    <VoteWidget score={post.voteScore}
+                                                onChange={type => this.props.doScore(type, post.id)}/>
+
+
+                                </div>
                             </div>
                         </div>
                     </div>

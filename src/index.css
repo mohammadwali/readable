@@ -89,10 +89,8 @@ h1.post-description {
 
 .post-info, .comment-header {
     position: relative;
-    height: auto;
     color: #9a9a90;
     padding: 10px 0;
-    line-height: 30px;
     border-top: 1px solid #e4e4e4;
 }
 
@@ -158,12 +156,12 @@ span.aside-heading {
 
 .vote-widget > .glyphicon-arrow-up {
     background: green;
-    margin-right: 5px;
+    margin-right: 11.5%;
 }
 
 .vote-widget > .glyphicon-arrow-down {
     background: red;
-    margin-left: 5px;
+    margin-left: 11.5%;
 }
 
 .post-content {
@@ -233,8 +231,9 @@ div#comments {
 .inline-icons {
     font-size: 19px;
     color: #879fc3;
-    margin: 0 10px 0 0;
+    margin: 0 12px 0 0;
     cursor: pointer;
+    line-height: 19px;
 }
 
 .inline-icons:hover {
@@ -286,6 +285,29 @@ textarea.form-control {
     opacity: 0.5;
     user-select: none;
 }
+
 .comment-item-edit-error {
     color: red;
+}
+
+.post-info .inline-icons {
+    margin: 0 15px 0 0;
+}
+
+.post-info .col-md-3 {
+    width: 20%;
+}
+
+.post-action-buttons .btn {
+    line-height: 1.7;
+    padding: 1px 7px;
+    margin-right: 15%;
+}
+
+.post-action-buttons .btn:last-child {
+    margin-right: 0 !important;
+}
+
+#posts .post-action-buttons .btn {
+    margin-right: 11%;
 }

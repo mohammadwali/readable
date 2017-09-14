@@ -26,7 +26,7 @@ class CommentItem extends Component {
 
                 </div>
 
-                <div className="col-md-1 text-right pull-right inline-icons-wrap">
+                <div className="col-md-2 text-right pull-right inline-icons-wrap">
 
                     <a className="edit-icon inline-icons"
                        onClick={() => toggleEdit(comment.id, true)}><i className="fa fa-pencil"/></a>

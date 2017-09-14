@@ -39,6 +39,7 @@ function postsReducer(state = [], action) {
                         return newPost;
                     }
 
+                    post.comments = post.comments || [];
                     post.comments = post.comments.filter(filterPostComments);
 
                     return post;

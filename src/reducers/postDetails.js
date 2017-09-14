@@ -19,7 +19,7 @@ function postDetailsReducer(state = {}, action) {
 
                 return newPost;
             }
-
+            state.comments = state.comments || [];
             state.comments = state.comments.filter(filterPostComments);
 
             return state;

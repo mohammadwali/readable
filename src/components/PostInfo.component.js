@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import * as actions from '../actions/postActions';
 
-import VoteWidget from './VoteWidget';
+import VoteWidget from './VoteWidget.component';
 
 
 class PostInfo extends Component {

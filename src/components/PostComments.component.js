@@ -5,8 +5,8 @@ import {SubmissionError} from 'redux-form';
 import * as EmailValidator from 'email-validator';
 import * as actions from '../actions/postActions';
 
-import CommentForm from './CommentForm'
-import CommentItem from './CommentItem'
+import CommentForm from './CommentForm.component'
+import CommentItem from './CommentItem.component'
 
 
 class PostPage extends Component {

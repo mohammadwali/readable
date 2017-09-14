@@ -9,8 +9,8 @@ import {BrowserRouter, Route, Redirect, Switch, Link} from 'react-router-dom'
 import './index.css';
 
 import reducer from './reducers'
-import HomePage from './components/pages/Home';
-import PostPage from './components/pages/Post';
+import HomePage from './components/Home.component';
+import PostPage from './components/PostDetails.component';
 
 import registerServiceWorker from './registerServiceWorker';
 

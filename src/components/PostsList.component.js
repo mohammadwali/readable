@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 
 import * as actions from '../actions/postActions';
-import Post from './post';
+import PostItem from './PostItem.component';
 
 class PostsList extends Component {
 
@@ -12,19 +12,7 @@ class PostsList extends Component {
     }
 
     render() {
-
-
-        return (
-            <div id="posts">
-
-
-                {
-                    this.props.posts.map(post => <Post key={post.id} post={post}/>)
-                }
-
-
-            </div>
-        )
+        return ( <div id="posts"> { this.props.posts.map(post => <PostItem key={post.id} post={post}/>) } </div>)
     }
 }
 

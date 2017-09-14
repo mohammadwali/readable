@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../../actions/postActions';
+import * as actions from '../actions/postActions';
 
-import Header from '../Header';
-import PostComments from '../PostComments'
-import PostInfo from '../PostInfo.component';
+import Header from './Header.component';
+import PostComments from './PostComments.component'
+import PostInfo from './PostInfo.component';
 
 
-class PostPage extends Component {
+class PostDetails extends Component {
 
     componentWillMount() {
         this.props.getPost(this.props.match.params.id);
@@ -60,5 +60,5 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(PostPage);
+)(PostDetails);
 

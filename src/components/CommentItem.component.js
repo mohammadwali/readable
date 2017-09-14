@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import TimeAgo from 'react-timeago';
 import moment from 'moment';
 
-import VoteWidget from './VoteWidget'
-import CommentEditForm from './CommentEdit'
+import VoteWidget from './VoteWidget.component'
+import CommentEditForm from './CommentEdit.component'
 
 
 class CommentItem extends Component {

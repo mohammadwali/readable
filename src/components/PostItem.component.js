@@ -8,7 +8,7 @@ import * as actions from '../actions/postActions';
 import PostInfo from './PostInfo.component';
 
 
-class Post extends Component {
+class PostItem extends Component {
 
     componentWillMount() {
         const {post, loadPostComments} = this.props;
@@ -69,5 +69,5 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Post)
+)(PostItem)
 

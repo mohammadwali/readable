@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import moment from 'moment';
 import * as actions from '../../actions/postActions';
 
 import Header from '../Header';
-import VoteWidget from '../VoteWidget'
 import PostComments from '../PostComments'
+import PostInfo from '../PostInfo.component';
 
 
 class PostPage extends Component {
@@ -15,8 +14,7 @@ class PostPage extends Component {
     }
 
     render() {
-        const {post, doScore} = this.props;
-        const formattedDate = moment(post.timestamp).format("MM-DD-YYYY");
+        const {post} = this.props;
 
         return (
             <div>
@@ -32,44 +30,7 @@ class PostPage extends Component {
                                 </p>
                             </div>
                             <div className="row">
-                                <div className="post-info row text-center">
-
-                                    <div className="col-md-3">
-
-                                        <span className="glyphicon glyphicon-user"/>
-                                        &nbsp;
-                                        { post.author }
-
-                                    </div>
-                                    <div className="col-md-3">
-                                        <span className="glyphicon glyphicon-calendar"/>
-                                        &nbsp; {formattedDate}
-                                    </div>
-
-
-                                    <div className="col-md-3">
-
-                                        <span className="glyphicon glyphicon-comment"/>
-                                        &nbsp;
-                                        <a >{ post.comments && post.comments.length || '0'} Comments</a>
-
-                                    </div>
-
-                                    <div className="col-md-3 post-action-buttons">
-                                        <a className="btn btn-xs btn-default">Edit</a>
-
-                                        <a className="btn btn-xs btn-danger">Delete</a>
-                                    </div>
-
-                                    <div className="col-md-3">
-
-                                        <VoteWidget score={post.voteScore}
-                                                    onChange={type => doScore(type, post.id)}/>
-
-
-                                    </div>
-
-                                </div>
+                                <PostInfo post={post}/>
                             </div>
                             <PostComments/>
                         </div>
@@ -91,8 +52,7 @@ function mapStateToProps(store, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getPost: postId => dispatch(actions.loadPostById(postId)),
-        doScore: (type, postId) => dispatch(actions.updatePostVote(type, postId))
+        getPost: postId => dispatch(actions.loadPostById(postId))
     }
 }
 

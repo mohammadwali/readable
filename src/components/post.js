@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Truncate from 'react-truncate'
-import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 import * as actions from '../actions/postActions';
 
-import VoteWidget from './VoteWidget';
+import PostInfo from './PostInfo.component';
 
 
 class Post extends Component {
@@ -22,7 +21,6 @@ class Post extends Component {
 
     render() {
         const {post} = this.props;
-        const formattedDate = moment(post.timestamp).format("MM-DD-YYYY");
 
         return (
             <div className="post">
@@ -48,42 +46,7 @@ class Post extends Component {
 
                     <div className="col-md-10  col-md-offset-1">
                         <div className="row">
-                            <div className="post-info row text-center">
-
-                                <div className="col-md-3">
-
-                                    <span className="glyphicon glyphicon-user"/>
-                                    &nbsp;
-                                    { post.author }
-
-                                </div>
-                                <div className="col-md-3">
-                                    <span className="glyphicon glyphicon-calendar"/>
-                                    &nbsp; {formattedDate}
-                                </div>
-
-
-                                <div className="col-md-3">
-
-                                    <span className="glyphicon glyphicon-comment"/>
-                                    &nbsp;
-                                    <a >{ post.comments && post.comments.length || '0'} Comments</a>
-
-                                </div>
-                                <div className="col-md-3 post-action-buttons">
-                                    <a className="btn btn-xs btn-default">Edit</a>
-
-                                    <a className="btn btn-xs btn-danger">Delete</a>
-                                </div>
-
-                                <div className="col-md-3">
-
-                                    <VoteWidget score={post.voteScore}
-                                                onChange={type => this.props.doScore(type, post.id)}/>
-
-
-                                </div>
-                            </div>
+                            <PostInfo post={post}/>
                         </div>
                     </div>
                 </div>

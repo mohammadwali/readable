@@ -28,7 +28,7 @@ class PostItem extends Component {
                     {  console.log("Reloading post", post) }
                     <div className="col-md-10  col-md-offset-1">
                         <h2 className="post-title">
-                            <Link to={ "/post/" + post.id }>{ post.title } </Link>
+                            <Link to={ `${post.category}/${post.id}` }>{ post.title } </Link>
                         </h2>
                         <p className="post-description">
 

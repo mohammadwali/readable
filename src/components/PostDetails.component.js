@@ -10,7 +10,7 @@ import PostInfo from './PostInfo.component';
 class PostDetails extends Component {
 
     componentWillMount() {
-        this.props.getPost(this.props.match.params.id);
+        this.props.getPost(this.props.match.params.post_id);
     }
 
     render() {

@@ -29,7 +29,9 @@ ReactDOM.render(
         <BrowserRouter>
             <Switch>
                 <Route exact path="/home" component={HomePage}/>
-                <Route exact path="/post/:id" component={PostPage}/>
+                <Route exact path="/:category" component={HomePage}/>
+                <Route exact path="/:category/:post_id" component={PostPage}/>
+                <Route exact path="/post/add" component={PostPage}/>
                 <Redirect to="/home"/>
             </Switch>
         </BrowserRouter>

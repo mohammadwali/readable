@@ -180,3 +180,23 @@ export function updateComment({comment, commentId}, postId) {
             })
     }
 }
+
+export function postDeleteSuccess(postId) {
+    return {type: types.POST_DELETE_SUCCESS, postId}
+}
+
+
+export function deletePost(postId) {
+    return dispatch => {
+
+        //updating the server
+        return fetch(`http://localhost:5001/posts/${postId}`,
+            {
+                method: "DELETE"
+            })
+            .then(response => dispatch(postDeleteSuccess(postId)))
+            .catch(error => {
+                throw(error)
+            })
+    }
+}

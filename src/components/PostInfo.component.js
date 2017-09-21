@@ -10,7 +10,7 @@ import VoteWidget from './VoteWidget.component';
 class PostInfo extends Component {
 
     render() {
-        const {post} = this.props;
+        const {post, deletePost} = this.props;
         const formattedDate = moment(post.timestamp).format("MM-DD-YYYY");
 
         return (
@@ -39,7 +39,9 @@ class PostInfo extends Component {
                 <div className="col-md-3 post-action-buttons">
                     <a className="btn btn-xs btn-default">Edit</a>
 
-                    <a className="btn btn-xs btn-danger">Delete</a>
+                    <a className="btn btn-xs btn-danger"
+                       onClick={() => window.confirm("Do you want to delete this permanently?") && deletePost(post.id)}
+                    >Delete</a>
                 </div>
 
                 <div className="col-md-3">
@@ -59,7 +61,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        doScore: (type, postId) => dispatch(actions.updatePostVote(type, postId))
+        doScore: (type, postId) => dispatch(actions.updatePostVote(type, postId)),
+        deletePost: (postId) => dispatch(actions.deletePost(postId))
     }
 }
 

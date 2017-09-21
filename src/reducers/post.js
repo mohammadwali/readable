@@ -47,6 +47,13 @@ function postsReducer(state = [], action) {
                 }).filter(post => !post.deleted)
             ];
 
+
+        case types.POST_DELETE_SUCCESS:
+            return [
+                ...state.filter(post => post.id !== action.postId)
+            ];
+
+
         default:
             return state;
     }

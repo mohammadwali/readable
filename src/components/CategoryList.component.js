@@ -19,8 +19,6 @@ class CategoryList extends Component {
     render() {
         const {categories} = this.props;
 
-        console.log(this.props.location)
-
         return (
             <div className="bg-container">
                 <div className="row">

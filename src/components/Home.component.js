@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Header from './Header.component';
 import PostsList from './PostsList.component';
-
+import CategoryList from './CategoryList.component';
 
 class Home extends Component {
     render() {
@@ -18,6 +18,22 @@ class Home extends Component {
                             <PostsList/>
                         </div>
 
+                        <div className="col-md-4">
+
+                            <aside>
+
+
+
+                                <div className="bg-container">
+                                    <div className="row">
+                                        <CategoryList/>
+                                    </div>
+                                </div>
+
+
+                            </aside>
+
+                        </div>
 
                     </div>
                 </div>

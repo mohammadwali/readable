@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import  {Link} from 'react-router-dom';
+import  {NavLink} from 'react-router-dom';
 import * as actions from '../actions/categoryActions';
+import {withRouter} from 'react-router';
 
 class CategoryList extends Component {
     componentWillMount() {
@@ -10,22 +11,33 @@ class CategoryList extends Component {
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return ((this.props.location.pathname !== nextProps.location.pathname) || this.props.categories.length !== nextProps.categories.length);
+    }
+
+
     render() {
         const {categories} = this.props;
 
-        return (
-            <div className="col-xs-10  col-xs-offset-1" id="categories">
-                <h6 className="aside-heading">Categories</h6>
-                <ul>
-                    {
-                        categories.map(item => (<li key={item.path}>
-                            <Link to={`/${item.path}`}>
-                                {item.name}
-                            </Link>
-                        </li>))
-                    }
-                </ul>
+        console.log(this.props.location)
 
+        return (
+            <div className="bg-container">
+                <div className="row">
+                    <div className="col-xs-10  col-xs-offset-1" id="categories">
+                        <h6 className="aside-heading">Categories</h6>
+                        <ul>
+                            {
+                                categories.map(item => (<li key={item.path}>
+                                    <NavLink to={`/${item.path}`} activeClassName="active">
+                                        {item.name}
+                                    </NavLink>
+                                </li>))
+                            }
+                        </ul>
+
+                    </div>
+                </div>
             </div>
         )
     }
@@ -43,7 +55,7 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(CategoryList);
+)(CategoryList));

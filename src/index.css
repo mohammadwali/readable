@@ -137,7 +137,7 @@ span.aside-heading {
     border-bottom: 1px solid #dfe2e4;
 }
 
-#categories ul li a:after {
+#categories ul li a:after, #categories ul li a.active:before {
     position: absolute;
     content: "\e080";
     font-weight: 400;
@@ -310,4 +310,20 @@ textarea.form-control {
 
 #posts .post-action-buttons .btn {
     margin-right: 11%;
+}
+
+#categories ul li a.active {
+    background: #4268a0;
+    color: #fff;
+    border-color: #4268a0;
+    padding-left: 25px;
+}
+
+#categories ul li a.active:before {
+    left: 20px;
+    right: auto;
+}
+
+#categories ul li a.active::after {
+    display: none;
 }

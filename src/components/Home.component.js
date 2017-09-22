@@ -7,7 +7,7 @@ import CategoryList from './CategoryList.component';
 class Home extends Component {
 
     render() {
-      
+
 
         return (
             <div>
@@ -25,12 +25,8 @@ class Home extends Component {
                             <aside>
 
 
-                                <div className="bg-container">
-                                    <div className="row">
-                                        <CategoryList/>
-                                    </div>
-                                </div>
 
+                                <CategoryList/>
 
                             </aside>
 

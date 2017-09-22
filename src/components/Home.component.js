@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Header from './Header.component';
 import PostsList from './PostsList.component';
 import CategoryList from './CategoryList.component';
+import PostsSorter from './PostsSorter.component';
 
 class Home extends Component {
 
@@ -24,6 +25,7 @@ class Home extends Component {
 
                             <aside>
 
+                                <PostsSorter/>
 
 
                                 <CategoryList/>

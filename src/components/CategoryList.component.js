@@ -18,7 +18,7 @@ class CategoryList extends Component {
                 <h6 className="aside-heading">Categories</h6>
                 <ul>
                     {
-                        categories.map(item => (<li>
+                        categories.map(item => (<li key={item.path}>
                             <Link to={`/${item.path}`}>
                                 {item.name}
                             </Link>

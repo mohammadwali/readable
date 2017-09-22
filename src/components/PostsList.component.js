@@ -6,9 +6,15 @@ import * as actions from '../actions/postActions';
 import PostItem from './PostItem.component';
 
 class PostsList extends Component {
+    componentWillReceiveProps(newProps) {
+        if (newProps.category !== this.props.category) {
+            this.props.loadPosts(newProps.category);
+        }
+    }
+
 
     componentWillMount() {
-        this.props.loadPosts();
+        this.props.loadPosts(this.props.category);
     }
 
     render() {
@@ -24,8 +30,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        loadPosts: () => dispatch(actions.loadPosts()),
-        doScore: (type, postId) => dispatch(actions.updatePostVote(type, postId))
+        loadPosts: category => dispatch(actions.loadPosts(category))
     }
 }
 

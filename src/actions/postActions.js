@@ -8,11 +8,13 @@ export function loadPostsSuccess(posts) {
 }
 
 
-export function loadPosts() {
+export function loadPosts(category) {
 
     return dispatch => {
+        const endpoint = (category) ? `http://localhost:5001/${category}/posts` : "http://localhost:5001/posts";
 
-        return fetch("http://localhost:5001/posts")
+
+        return fetch(endpoint)
             .then(posts => dispatch(loadPostsSuccess(posts)))
             .catch(error => {
                 throw(error)

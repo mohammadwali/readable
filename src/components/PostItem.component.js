@@ -2,10 +2,12 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Truncate from 'react-truncate'
 import {Link} from 'react-router-dom'
+import {SubmissionError} from 'redux-form';
 
 import * as actions from '../actions/postActions';
 
 import PostInfo from './PostInfo.component';
+import PostEditForm from './PostEdit.component';
 
 
 class PostItem extends Component {
@@ -19,8 +21,24 @@ class PostItem extends Component {
         }
     }
 
+    onPostEdit(values) {
+        if (!values.title || values.title.trim() === "") {
+            throw new SubmissionError({
+                _error: "Post title is required"
+            })
+        }
+
+        if (!values.body || values.body.trim() === "") {
+            throw new SubmissionError({
+                _error: "Post description cannot be empty."
+            })
+        }
+
+        this.props.updatePost({id: this.props.post.id, ...values})
+    }
+
     render() {
-        const {post} = this.props;
+        const {post, cancelEdits} = this.props;
         const truncate = typeof this.props.truncate === "undefined" ? true : this.props.truncate;
 
 
@@ -30,45 +48,14 @@ class PostItem extends Component {
                     {  console.log("Reloading post", post) }
 
 
-                    {  post.isEditing ? <form className="app-form">
-
-                        <div className="row">
-                            <div className="col-md-10  col-md-offset-1">
-                                <input type="text" placeholder="Post title" value={post.title}/>
-                            </div>
-                        </div>
-
-
-                        <div className="row">
-                            <div className="col-md-10  col-md-offset-1">
-                                <textarea placeholder="Post description" value={post.body} rows={7}/>
-                            </div>
-                        </div>
-
-                        <div className="row">
-                            <div className="col-md-10  col-md-offset-1 buttons-wrap">
-                                <button type="submit" className="btn btn-sm btn-primary">Update</button>
-                                <a className="btn btn-sm btn-default">Cancel</a>
-                            </div>
-                        </div>
-
-                    </form> : <div className="col-md-10  col-md-offset-1">
-
-                        <h2 className="post-title">
-                            <Link to={ `${post.category}/${post.id}` }>{ post.title } </Link>
-                        </h2>
-                        <p className="post-description">
-
-                            { truncate ? <Truncate lines={4}
-                                                   ellipsis={
-                                                       <span>...</span>
-                                                   }>
-
-                                { post.body  }
-                            </Truncate> : post.body }
-                        </p>
-
-                    </div> }
+                    {  post.isEditing ?
+                        <PostEditForm
+                            cancelEdit={() => cancelEdits(post.id)}
+                            onSubmit={this.onPostEdit.bind(this)}
+                            form={"post-edit-form-" + post.id}
+                            post={post}/> :
+                        <PostContent post={post} truncate={truncate}/>
+                    }
 
 
                 </div>
@@ -85,14 +72,37 @@ class PostItem extends Component {
     }
 }
 
+function PostContent({post, truncate}) {
+    return (
+        <div className="col-md-10  col-md-offset-1">
+
+            <h2 className="post-title">
+                <Link to={ `${post.category}/${post.id}` }>{ post.title } </Link>
+            </h2>
+            <p className="post-description">
+
+                { truncate ? <Truncate lines={4}
+                                       ellipsis={
+                                           <span>...</span>
+                                       }>
+
+                    { post.body  }
+                </Truncate> : post.body }
+            </p>
+
+        </div>);
+}
+
+
 function mapStateToProps(state, ownProps) {
     return {}
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        loadPostComments: (postId) => dispatch(actions.loadPostComments(postId)),
-        doScore: (type, postId) => dispatch(actions.updatePostVote(type, postId))
+        loadPostComments: postId => dispatch(actions.loadPostComments(postId)),
+        cancelEdits: postId => dispatch(actions.toggleEdit(postId, false)),
+        updatePost: values => dispatch(actions.updatePost(values))
     }
 }
 

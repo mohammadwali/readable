@@ -73,6 +73,19 @@ function postsReducer(state = [], action) {
                 })
             ];
 
+        case types.UPDATE_POST:
+            return [
+                ...state.map(post => {
+
+                    //only updating the post which is changed!
+
+                    if (post.id === action.post.id) {
+                        return Object.assign({}, post, {isEditing: false, ...action.post});
+                    }
+
+                    return post;
+                })
+            ];
 
         default:
             return state;

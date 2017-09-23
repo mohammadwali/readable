@@ -93,6 +93,14 @@ function postDetailsReducer(state = {}, action) {
             return Object.assign({}, state, {isEditing: action.state});
 
 
+        case types.UPDATE_POST:
+
+            if (state.id === action.post.id) {
+                return Object.assign({}, state, {isEditing: false, ...action.post});
+            }
+
+            return state;
+
         default:
             return state;
     }

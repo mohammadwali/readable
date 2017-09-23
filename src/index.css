@@ -292,7 +292,7 @@ textarea.form-control {
     user-select: none;
 }
 
-.comment-item-edit-error {
+.app-form-edit-error {
     color: red;
 }
 

@@ -229,3 +229,24 @@ export function addNewPost(postDetails) {
 export function toggleEdit(postId, state) {
     return {type: types.TOGGLE_POST_EDIT, state, postId}
 }
+
+
+export function postUpdateSuccess(updatedPostValues) {
+    return {type: types.UPDATE_POST, post: updatedPostValues}
+}
+
+export function updatePost({id, ...updatedValues}) {
+    return dispatch => {
+        return fetch(`http://localhost:5001/posts/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(updatedValues),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(post => dispatch(postUpdateSuccess(post)))
+            .catch(error => {
+                throw(error)
+            })
+    }
+}

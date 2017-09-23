@@ -18,7 +18,7 @@ class CommentEditForm extends Component {
                            component="textarea" rows={2}/>
                 </div>
                 <div className="col-md-12">
-                    {error && (<div className="pull-left comment-item-edit-error">Error: {error}</div>)}
+                    {error && (<div className="pull-left app-form-edit-error">Error: {error}</div>)}
 
                     <div className="pull-right">
                         <button type="submit" className="btn btn-primary">Update comment</button>

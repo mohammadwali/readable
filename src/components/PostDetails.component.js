@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import history from '../utils/history'
+
 import * as actions from '../actions/postActions';
 
 import Header from './Header.component';
@@ -30,7 +32,7 @@ class PostDetails extends Component {
                                 </p>
                             </div>
                             <div className="row">
-                                <PostInfo post={post}/>
+                                <PostInfo post={post} onDelete={() => history.push("/")}/>
                             </div>
                             <PostComments/>
                         </div>

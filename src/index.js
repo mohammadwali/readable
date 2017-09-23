@@ -3,8 +3,8 @@ import thunk from 'redux-thunk'
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, compose} from 'redux'
-import {BrowserRouter, Route, Redirect, Switch, Link} from 'react-router-dom'
-
+import {Router, Route, Redirect, Switch, Link} from 'react-router-dom'
+import history from './utils/history'
 
 import './index.css';
 
@@ -26,7 +26,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <Router history={history}>
             <Switch>
                 <Route exact path="/" component={HomePage}/>
                 <Route exact path="/:category" component={HomePage}/>
@@ -34,7 +34,7 @@ ReactDOM.render(
                 <Route exact path="/post/add" component={PostPage}/>
                 <Redirect to="/"/>
             </Switch>
-        </BrowserRouter>
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

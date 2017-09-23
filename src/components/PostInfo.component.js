@@ -10,7 +10,7 @@ import VoteWidget from './VoteWidget.component';
 class PostInfo extends Component {
 
     render() {
-        const {post, deletePost} = this.props;
+        const {post, deletePost, onDelete} = this.props;
         const formattedDate = moment(post.timestamp).format("MM-DD-YYYY");
 
         return (
@@ -40,7 +40,10 @@ class PostInfo extends Component {
                     <a className="btn btn-xs btn-default">Edit</a>
 
                     <a className="btn btn-xs btn-danger"
-                       onClick={() => window.confirm("Do you want to delete this permanently?") && deletePost(post.id)}
+                       onClick={() => window.confirm("Do you want to delete this permanently?") && (() => {
+                           deletePost(post.id);
+                           onDelete && onDelete(post);
+                       })()}
                     >Delete</a>
                 </div>
 

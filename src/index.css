@@ -176,26 +176,31 @@ span.aside-heading {
     margin-bottom: 20px;
 }
 
-.comment-form {
+.app-form {
     margin-bottom: 30px;
 }
 
-.comment-form input {
+.app-form select, .app-form textarea, .app-form input {
     width: 100%;
-    padding: 9px 12px;
+    padding: 10px 15px;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
     background: #f8f9fa;
-    margin-bottom: 30px;
+    color: #555;
 }
 
-.comment-form textarea {
-    width: 100%;
-    padding: 9px 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    background: #f8f9fa;
+.app-form input {
+    margin-bottom: 30px;
+    height: auto;
+}
+
+.app-form textarea {
     margin-bottom: 15px;
+    height: auto;
+}
+
+.app-form select {
+    height: 42px;
 }
 
 .comments-head {
@@ -326,4 +331,13 @@ textarea.form-control {
 
 #categories ul li a.active::after {
     display: none;
+}
+
+.post-form-container {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.post-form-container .app-form {
+    margin-top: 20px;
 }

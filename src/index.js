@@ -11,6 +11,7 @@ import './index.css';
 import reducer from './reducers'
 import HomePage from './components/Home.component';
 import PostPage from './components/PostDetails.component';
+import PostAdd from './components/PostAdd.component';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -29,9 +30,9 @@ ReactDOM.render(
         <Router history={history}>
             <Switch>
                 <Route exact path="/" component={HomePage}/>
+                <Route exact path="/post/add" component={PostAdd}/>
                 <Route exact path="/:category" component={HomePage}/>
                 <Route exact path="/:category/:post_id" component={PostPage}/>
-                <Route exact path="/post/add" component={PostPage}/>
                 <Redirect to="/"/>
             </Switch>
         </Router>

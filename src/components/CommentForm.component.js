@@ -10,7 +10,7 @@ class CommentForm extends Component {
                 <h2 className="comments-head">
                     <i className="fa fa-comment-o"/>
                     Add a comment</h2>
-                <form className="comment-form clearfix" onSubmit={handleSubmit}>
+                <form className="app-form clearfix" onSubmit={handleSubmit}>
                     <div className="col-md-6">
                         <Field name="name" className="form-control" placeholder="Name" component="input" type="text"/>
                     </div>

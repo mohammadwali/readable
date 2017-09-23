@@ -19,7 +19,10 @@ class Header extends Component {
                         </div>
 
                         <div className="col-md-1 pull-right text-right header-new-button">
-                            <button type="button" className="btn btn-danger btn-sm">+ &nbsp;New Post</button>
+
+                            <Link className="btn btn-danger btn-sm" to="/post/add">
+                                + &nbsp;New Post
+                            </Link>
                         </div>
 
                     </div>

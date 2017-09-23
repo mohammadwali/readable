@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../actions/categoryActions';
+import * as actions from '../actions/postActions';
 
 class PostsSorter extends Component {
     componentWillMount() {
@@ -15,8 +15,11 @@ class PostsSorter extends Component {
                 <div className="row">
                     <div className="col-xs-10  col-xs-offset-1">
                         <span className="aside-heading">Sort By</span>
-                        <select className="aside-dropdown">
-                            <option>Date Updated</option>
+                        <select className="aside-dropdown"
+                                onChange={e => this.props.doSort(e.target.value)}
+                        >
+                            <option value="timestamp">Date Updated</option>
+                            <option value="voteScore">Vote Score</option>
                         </select>
 
                     </div>
@@ -32,8 +35,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        doSort: () => {
-        }
+        doSort: (sortType) => dispatch(actions.sortPosts(sortType))
     }
 }
 

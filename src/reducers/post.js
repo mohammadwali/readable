@@ -53,6 +53,11 @@ function postsReducer(state = [], action) {
                 ...state.filter(post => post.id !== action.postId)
             ];
 
+        case types.POSTS_SORT_CHANGE:
+            return [
+                ...state.sort((a, b) => a[action.sortType] - b[action.sortType])
+            ];
+
 
         default:
             return state;

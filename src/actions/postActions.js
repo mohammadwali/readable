@@ -202,3 +202,7 @@ export function deletePost(postId) {
             })
     }
 }
+
+export function sortPosts(sortType) {
+    return {type: types.POSTS_SORT_CHANGE, sortType}
+}

@@ -6,8 +6,7 @@ import * as actions from '../actions/postActions';
 
 import Header from './Header.component';
 import PostComments from './PostComments.component'
-import PostInfo from './PostInfo.component';
-
+import PostItem from './PostItem.component';
 
 class PostDetails extends Component {
 
@@ -24,16 +23,8 @@ class PostDetails extends Component {
 
                 <div className="container bg-container post-page-container">
                     <div className="row">
+                        <PostItem post={post} truncate={false}/>
                         <div className="col-md-8 col-md-offset-2">
-                            <div className="row">
-                                <h1 className="post-title"> { post.title } </h1>
-                                <p className="post-content">
-                                    { post.body  }
-                                </p>
-                            </div>
-                            <div className="row">
-                                <PostInfo post={post} onDelete={() => history.push("/")}/>
-                            </div>
                             <PostComments/>
                         </div>
                     </div>

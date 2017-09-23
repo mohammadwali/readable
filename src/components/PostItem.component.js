@@ -14,13 +14,14 @@ class PostItem extends Component {
         const {post, loadPostComments} = this.props;
 
         //we only need to get comments if they are not there already
-        if (!post.comments) {
+        if (!post.comments && post.id) {
             loadPostComments(post.id);
         }
     }
 
     render() {
         const {post} = this.props;
+        const truncate = typeof this.props.truncate === "undefined" ? true : this.props.truncate;
 
         return (
             <div className="post">
@@ -32,13 +33,13 @@ class PostItem extends Component {
                         </h2>
                         <p className="post-description">
 
-                            <Truncate lines={4}
-                                      ellipsis={
-                                          <span>...</span>
-                                      }>
+                            { truncate ? <Truncate lines={4}
+                                                   ellipsis={
+                                                       <span>...</span>
+                                                   }>
 
                                 { post.body  }
-                            </Truncate>
+                            </Truncate> : post.body }
                         </p>
                     </div>
                 </div>

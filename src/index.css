@@ -341,3 +341,13 @@ textarea.form-control {
 .post-form-container .app-form {
     margin-top: 20px;
 }
+
+.post-page-container .post-title {
+    font-size: 36px;
+}
+
+
+.post-page-container .post {
+    margin: 0;
+    border: 0;
+}

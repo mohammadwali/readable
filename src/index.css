@@ -187,6 +187,7 @@ span.aside-heading {
     border-radius: 6px;
     background: #f8f9fa;
     color: #555;
+    outline: 0;
 }
 
 .app-form input {
@@ -350,4 +351,24 @@ textarea.form-control {
 .post-page-container .post {
     margin: 0;
     border: 0;
+}
+
+
+.post .app-form input, .post .app-form textarea {
+    margin: 2px;
+    border: 1px solid #f3f4f4;
+}
+
+.post .app-form input {
+    font-size: 19px;
+}
+
+.post .app-form {
+    margin: 20px 0 10px;
+}
+
+.post .app-form .buttons-wrap {text-align: right;}
+
+.post .app-form .buttons-wrap .btn-default {
+    margin-left: 10px;
 }

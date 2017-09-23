@@ -10,7 +10,7 @@ import VoteWidget from './VoteWidget.component';
 class PostInfo extends Component {
 
     render() {
-        const {post, deletePost, onDelete} = this.props;
+        const {post, deletePost, onDelete, toggleEdit} = this.props;
         const formattedDate = moment(post.timestamp).format("MM-DD-YYYY");
 
         return (
@@ -37,7 +37,9 @@ class PostInfo extends Component {
 
                 </div>
                 <div className="col-md-3 post-action-buttons">
-                    <a className="btn btn-xs btn-default">Edit</a>
+                    <a className="btn btn-xs btn-default"
+                       onClick={() => toggleEdit(post.id, true)}
+                    >Edit</a>
 
                     <a className="btn btn-xs btn-danger"
                        onClick={() => window.confirm("Do you want to delete this permanently?") && (() => {
@@ -65,7 +67,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
     return {
         doScore: (type, postId) => dispatch(actions.updatePostVote(type, postId)),
-        deletePost: (postId) => dispatch(actions.deletePost(postId))
+        deletePost: (postId) => dispatch(actions.deletePost(postId)),
+        toggleEdit: (postId, state) => dispatch(actions.toggleEdit(postId, state))
     }
 }
 

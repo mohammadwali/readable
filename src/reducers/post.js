@@ -58,6 +58,21 @@ function postsReducer(state = [], action) {
                 ...state.sort((a, b) => a[action.sortType] - b[action.sortType])
             ];
 
+        case types.TOGGLE_POST_EDIT:
+
+            return [
+                ...state.map(post => {
+
+                    //only updating the post which is changed!
+
+                    if (post.id === action.postId) {
+                        return Object.assign({}, post, {isEditing: action.state});
+                    }
+
+                    return post;
+                })
+            ];
+
 
         default:
             return state;

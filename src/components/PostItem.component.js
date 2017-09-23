@@ -23,11 +23,37 @@ class PostItem extends Component {
         const {post} = this.props;
         const truncate = typeof this.props.truncate === "undefined" ? true : this.props.truncate;
 
+
         return (
             <div className="post">
                 <div className="row">
                     {  console.log("Reloading post", post) }
-                    <div className="col-md-10  col-md-offset-1">
+
+
+                    {  post.isEditing ? <form className="app-form">
+
+                        <div className="row">
+                            <div className="col-md-10  col-md-offset-1">
+                                <input type="text" placeholder="Post title" value={post.title}/>
+                            </div>
+                        </div>
+
+
+                        <div className="row">
+                            <div className="col-md-10  col-md-offset-1">
+                                <textarea placeholder="Post description" value={post.body} rows={7}/>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-md-10  col-md-offset-1 buttons-wrap">
+                                <button type="submit" className="btn btn-sm btn-primary">Update</button>
+                                <a className="btn btn-sm btn-default">Cancel</a>
+                            </div>
+                        </div>
+
+                    </form> : <div className="col-md-10  col-md-offset-1">
+
                         <h2 className="post-title">
                             <Link to={ `${post.category}/${post.id}` }>{ post.title } </Link>
                         </h2>
@@ -41,12 +67,15 @@ class PostItem extends Component {
                                 { post.body  }
                             </Truncate> : post.body }
                         </p>
-                    </div>
+
+                    </div> }
+
+
                 </div>
                 <div className="row">
 
                     <div className="col-md-10  col-md-offset-1">
-                        <div className="row">
+                        <div className={"row" + (post.isEditing ? " disabled" : "")}>
                             <PostInfo post={post}/>
                         </div>
                     </div>

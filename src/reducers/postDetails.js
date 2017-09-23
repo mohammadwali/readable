@@ -85,6 +85,13 @@ function postDetailsReducer(state = {}, action) {
                 ]
             });
 
+        case types.TOGGLE_POST_EDIT:
+
+
+            //only updating the post which is changed!
+
+            return Object.assign({}, state, {isEditing: action.state});
+
 
         default:
             return state;

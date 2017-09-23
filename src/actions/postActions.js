@@ -225,3 +225,7 @@ export function addNewPost(postDetails) {
         });
 
 }
+
+export function toggleEdit(postId, state) {
+    return {type: types.TOGGLE_POST_EDIT, state, postId}
+}

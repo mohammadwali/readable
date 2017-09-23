@@ -4,20 +4,20 @@ const config = require('./config')
 let db = {}
 
 const defaultData = {
-  categories: [
-      {
-        name: 'NodeJs',
-        path: 'nodejs'
-      },
-      {
-        name: 'HTML5',
-        path: 'html5'
-      },
-      {
-        name: 'Technology',
-        path: 'technology'
-      }
-  ]
+    categories: [
+        {
+            name: 'react',
+            path: 'react'
+        },
+        {
+            name: 'redux',
+            path: 'redux'
+        },
+        {
+            name: 'udacity',
+            path: 'udacity'
+        }
+    ]
 }
 
 function getData (token) {
@@ -32,7 +32,7 @@ function getData (token) {
 
 function getAll (token) {
   return new Promise((res) => {
-    res(getData(token))    
+    res(getData(token))
   })
 }
 

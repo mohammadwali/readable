@@ -18,7 +18,14 @@ class PostsList extends Component {
     }
 
     render() {
-        return ( <div id="posts"> { this.props.posts.map(post => <PostItem key={post.id} post={post}/>) } </div>)
+        return ( <div id="posts"> {
+
+            this.props.posts.length ? this.props.posts.map(post => <PostItem key={post.id} post={post}/>) :
+                ( <h1 className="posts-placeholder"><i className="fa fa-frown-o"/> No posts found.</h1>)
+
+
+
+        } </div>)
     }
 }
 

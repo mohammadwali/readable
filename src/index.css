@@ -372,3 +372,9 @@ textarea.form-control {
 .post .app-form .buttons-wrap .btn-default {
     margin-left: 10px;
 }
+
+
+.posts-placeholder {
+    text-align: center;
+    padding: 150px 0;
+}

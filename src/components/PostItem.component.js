@@ -45,8 +45,6 @@ class PostItem extends Component {
         return (
             <div className="post">
                 <div className="row">
-                    {  console.log("Reloading post", post) }
-
 
                     {  post.isEditing ?
                         <PostEditForm

@@ -25,7 +25,7 @@ class PostForm extends Component {
                         <Field component="select" name="category" className="form-control">
                             <option value="">Category</option>
                             { this.props.categories.map(category => (
-                                <option value={category.path}>{category.name}</option>)) }
+                                <option key={category.path} value={category.path}>{category.name}</option>)) }
                         </Field>
                     </div>
                 </div>

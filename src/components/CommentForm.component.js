@@ -26,7 +26,7 @@ class CommentForm extends Component {
                         {
                             error &&
 
-                            <div id="comment-form-error">
+                            <div className="app-form-error">
                                 {error}
                             </div>
                         }

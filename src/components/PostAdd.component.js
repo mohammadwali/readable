@@ -1,11 +1,55 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {SubmissionError} from 'redux-form';
+
+import history from '../utils/history'
+
+import * as postActions from '../actions/postActions';
+import * as categoryActions from '../actions/categoryActions';
 
 import Header from './Header.component';
-import PostsList from './PostsList.component';
-import CategoryList from './CategoryList.component';
-import PostsSorter from './PostsSorter.component';
+import PostForm from './PostForm.component';
 
-class Home extends Component {
+class PostAdd extends Component {
+
+    componentWillMount() {
+        if (!this.props.categories.length) {
+            this.props.loadCategories();
+        }
+    }
+
+
+    onPostSubmit(values) {
+        if (!values.title || values.title.trim() === "") {
+            throw new SubmissionError({
+                _error: "Post title is required"
+            })
+        }
+
+        if (!values.author || values.author.trim() === "") {
+            throw new SubmissionError({
+                _error: "Author name is required"
+            })
+        }
+
+
+        if (!values.category || values.category.trim() === "") {
+            throw new SubmissionError({
+                _error: "Please select a category"
+            })
+        }
+
+
+        if (!values.body || values.body.trim() === "") {
+            throw new SubmissionError({
+                _error: "Post description cannot be empty."
+            })
+        }
+
+
+        this.props.addNewPost(values);
+    }
+
 
     render() {
 
@@ -30,34 +74,8 @@ class Home extends Component {
                                             <h2>Add new Post</h2>
                                         </div>
                                     </div>
-                                    <form className="app-form clearfix container-fluid">
-
-                                        <div className="row">
-                                            <div className="col-md-12">
-                                                <input type="text" className="form-control" placeholder="Post Title"/>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <input type="text" className="form-control" placeholder="Author Name"/>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <select name="" className="form-control">
-                                                    <option value="">Category</option>
-
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-12">
-                                                <textarea className="form-control" rows={15}
-                                                          placeholder="Post Description"/>
-                                                <a href="#" className="btn btn-primary">Add Post</a>
-                                            </div>
-                                        </div>
-
-                                    </form>
+                                    <PostForm onSubmit={this.onPostSubmit.bind(this)}
+                                              categories={this.props.categories}/>
                                 </div>
                             </div>
 
@@ -73,5 +91,24 @@ class Home extends Component {
 }
 
 
-export default Home;
+function mapStateToProps(state, ownProps) {
+    return {
+        categories: state.categories
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        loadCategories: () => dispatch(categoryActions.loadCategories()),
+        addNewPost: (values) => {
+            postActions.addNewPost(values)
+                .then(result => (result.id && history.push("/")))
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PostAdd)
 

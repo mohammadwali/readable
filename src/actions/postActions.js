@@ -206,3 +206,22 @@ export function deletePost(postId) {
 export function sortPosts(sortType) {
     return {type: types.POSTS_SORT_CHANGE, sortType}
 }
+
+
+export function addNewPost(postDetails) {
+    return fetch(`http://localhost:5001/posts`, {
+        method: "POST",
+        body: JSON.stringify({
+            id: uuid(),
+            timestamp: Date.now(),
+            ...postDetails
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .catch(error => {
+            throw(error)
+        });
+
+}

@@ -262,7 +262,7 @@ div#comments {
     margin-top: 20px;
 }
 
-div#comment-form-error {
+.app-form-error {
     padding: 10px;
     background: #d85050;
     margin: 0 0 10px;

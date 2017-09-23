@@ -21,7 +21,7 @@ class CommentEditForm extends Component {
                     {error && (<div className="pull-left app-form-edit-error">Error: {error}</div>)}
 
                     <div className="pull-right">
-                        <button type="submit" className="btn btn-primary">Update comment</button>
+                        <button disabled={submitting} type="submit" className="btn btn-primary">Update comment</button>
                         <a onClick={cancelEdit} className="btn btn-default">Cancel</a>
                     </div>
                 </div>

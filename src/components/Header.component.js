@@ -13,7 +13,7 @@ class Header extends Component {
 
                         <div className="col-md-2">
                             <Link className="logo" to="/">
-                                <img src={logo}/>
+                                <img alt="logo" src={logo}/>
                                 <span>Readable</span>
                             </Link>
                         </div>

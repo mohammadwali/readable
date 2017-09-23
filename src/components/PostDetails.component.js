@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import history from '../utils/history'
 
 import * as actions from '../actions/postActions';
 

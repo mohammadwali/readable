@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, compose} from 'redux'
-import {Router, Route, Redirect, Switch, Link} from 'react-router-dom'
+import {Router, Route, Redirect, Switch} from 'react-router-dom'
 import history from './utils/history'
 
 import './index.css';
